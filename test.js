@@ -19,6 +19,9 @@ test('boundary conditions', () => {
   expect(bytesize(1024 + 102, 0)).toBe('1KB');
   expect(bytesize((1024 ** 2) - 1, 1)).toBe('1MB');
   expect(bytesize((1024 ** 2) + 1, 1)).toBe('1MB');
+  // Ensures that we don't try to reduce 1024YB to the next biggest prefix,
+  // because there isn't one!
+  expect(bytesize((2**90) -1, 1)).toBe('1024YB');
 });
 
 test('non-integer results', () => {

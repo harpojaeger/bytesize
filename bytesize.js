@@ -33,7 +33,9 @@ function bytesize(bytes, maxDecimalDigits) {
   quotient =
       Math.round(quotient * (10 ** maxDecimalDigits)) /
         (10 ** maxDecimalDigits);
-  if (quotient == 1024) {
+  // In the special case where quotient has been rounded up to 1024, we need to
+  // reduce it "by hand.""
+  if (quotient == 1024 && i < prefixes.length -1) {
     i++;
     quotient = 1;
   }
