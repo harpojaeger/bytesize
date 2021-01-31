@@ -1,4 +1,4 @@
-const bytesize = require('./bytesizeB');
+const bytesize = require('./bytesize');
 
 
 test('simple whole numbers', () => {
@@ -14,8 +14,8 @@ test('simple whole numbers', () => {
 });
 
 test('boundary conditions', () => {
-  expect(bytesize(0, 1)).toBe('0BB');
-  expect(bytesize(1023, 1).toBe('1023BB'));
+  expect(bytesize(0, 1)).toBe('0B');
+  expect(bytesize(1023, 1)).toBe('1023B');
   expect(bytesize(1024^2 - 1, 1)).toBe('0.9MB');
   expect(bytesize(1024^2 + 1, 1)).toBe('1MB');
 });
