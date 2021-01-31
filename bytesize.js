@@ -1,4 +1,4 @@
-function bytesize(bytes, decimals) {
+function bytesize(bytes, maxDecimalDigits) {
     return "";
 }
 
