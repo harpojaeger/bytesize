@@ -39,7 +39,12 @@ test('error conditions', () => {
   expect(() => {
     bytesize(1.5, 1);
   }).toThrow();
+
   expect(() => {
     bytesize(1, -1);
+  }).toThrow();
+
+  expect(() => {
+    bytesize(1, 1.2);
   }).toThrow();
 });
