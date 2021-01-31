@@ -18,7 +18,6 @@ function bytesize(bytes, maxDecimalDigits) {
   }
   const prefixes = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
   let sign = '';
-  metricPrefix = '';
   if (bytes < 0) {
     sign = '-';
     bytes = -1 * bytes;
@@ -39,9 +38,8 @@ function bytesize(bytes, maxDecimalDigits) {
     i++;
     quotient = 1;
   }
-  metricPrefix = prefixes[i];
 
-  return sign + quotient + metricPrefix + 'B';
+  return sign + quotient + prefixes[i] + 'B';
 }
 
 module.exports = bytesize;
