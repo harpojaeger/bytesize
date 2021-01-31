@@ -16,12 +16,12 @@ test('simple whole numbers', () => {
 test('boundary conditions', () => {
   expect(bytesize(0, 1)).toBe('0B');
   expect(bytesize(1023, 1)).toBe('1023B');
+  expect(bytesize(1024 + 102, 0)).toBe('1KB');
   expect(bytesize((1024 ** 2) - 1, 1)).toBe('1MB');
   expect(bytesize((1024 ** 2) + 1, 1)).toBe('1MB');
 });
 
 test('non-integer results', () => {
-  expect(bytesize(1024 + 102, 0)).toBe('1KB');
   expect(bytesize(5.5*(1024 ** 2), 1)).toBe('5.5MB');
   expect(bytesize(36523*(2 ** 20), 1)).toBe('35.7GB');
   expect(bytesize(36523*(2 ** 20), 2)).toBe('35.67GB');
