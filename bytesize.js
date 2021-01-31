@@ -23,27 +23,23 @@ function bytesize(bytes, maxDecimalDigits) {
     sign = '-';
     bytes = -1 * bytes;
   }
-  let formatted;
-  if (bytes < 1024) {
-    formatted = bytes;
-  } else {
-    let quotient = bytes;
-    let i = 0;
-    while (quotient >= 1024 && i < prefixes.length - 1) {
-      quotient = quotient / 1024;
-      i++;
-    }
-    quotient =
+
+  let quotient = bytes;
+  let i = 0;
+  while (quotient >= 1024 && i < prefixes.length - 1) {
+    quotient = quotient / 1024;
+    i++;
+  }
+  quotient =
       Math.round(quotient * (10 ** maxDecimalDigits)) /
         (10 ** maxDecimalDigits);
-    if (quotient == 1024) {
-      i++;
-      quotient = 1;
-    }
-    metricPrefix = prefixes[i];
-    formatted = quotient;
+  if (quotient == 1024) {
+    i++;
+    quotient = 1;
   }
-  return sign + formatted + metricPrefix + 'B';
+  metricPrefix = prefixes[i];
+
+  return sign + quotient + metricPrefix + 'B';
 }
 
 module.exports = bytesize;
