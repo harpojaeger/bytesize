@@ -1,5 +1,5 @@
 function bytesize(bytes, maxDecimalDigits) {
-    return "";
+  return '';
 }
 
 module.exports = bytesize;
