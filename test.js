@@ -2,7 +2,7 @@ const bytesize = require('./bytesize');
 
 
 test('simple whole numbers', () => {
-  // expect(bytesize((2 ** 10), 1)).toBe('1KB');
+  expect(bytesize((2 ** 10), 1)).toBe('1KB');
   expect(bytesize(37*((2 ** 20)), 1)).toBe('37MB');
   expect(bytesize(7*(2**30), 1)).toBe('7GB');
   expect(bytesize(803*(2 ** 40), 1)).toBe('803TB');
