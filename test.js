@@ -33,3 +33,12 @@ test('non-integer results', () => {
 test('negative sizes', () => {
   expect(bytesize(-35 * 2^40, 1)).toBe('-35T');
 });
+
+test('error conditions', () => {
+  expect(() => {
+    bytesize(1.5, 1);
+  }).toThrow();
+  expect(() => {
+    bytesize(1, -1);
+  }).toThrow();
+});
