@@ -9,7 +9,27 @@
  * '-3.5M'.
  */
 function bytesize(bytes, maxDecimalDigits) {
-  return '';
+  const prefixes = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
+  let sign = '';
+  metricPrefix = '';
+  if (bytes < 0) {
+    sign = '-';
+    bytes = -1 * bytes;
+  }
+  let formatted;
+  if (bytes < 1024) {
+    formatted = bytes;
+  } else {
+    let quotient = bytes;
+    let i = 0;
+    while (quotient >= 1024 && i < prefixes.length - 1) {
+      quotient = quotient / 1024;
+      i++;
+    }
+    metricPrefix = prefixes[i];
+    formatted = quotient;
+  }
+  return sign + formatted + metricPrefix + 'B';
 }
 
 module.exports = bytesize;
