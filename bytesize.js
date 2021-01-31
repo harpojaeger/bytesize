@@ -26,6 +26,14 @@ function bytesize(bytes, maxDecimalDigits) {
       quotient = quotient / 1024;
       i++;
     }
+    quotient =
+      Math.round(quotient * (10 ** maxDecimalDigits)) /
+        (10 ** maxDecimalDigits);
+    if (quotient == 1024) {
+      console.log('special case entered');
+      i++;
+      quotient = 1;
+    }
     metricPrefix = prefixes[i];
     formatted = quotient;
   }
