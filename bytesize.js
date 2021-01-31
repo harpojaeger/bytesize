@@ -9,6 +9,12 @@
  * '-3.5M'.
  */
 function bytesize(bytes, maxDecimalDigits) {
+  if (!Number.isInteger(bytes)) {
+    throw new Error('Provided bytes must be an integer.');
+  }
+  if ( maxDecimalDigits < 0 || !Number.isInteger(maxDecimalDigits)) {
+    throw new Error('Provided maxDecimalDigits must be a non-negative integer.');
+  }
   const prefixes = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
   let sign = '';
   metricPrefix = '';
