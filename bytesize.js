@@ -30,7 +30,6 @@ function bytesize(bytes, maxDecimalDigits) {
       Math.round(quotient * (10 ** maxDecimalDigits)) /
         (10 ** maxDecimalDigits);
     if (quotient == 1024) {
-      console.log('special case entered');
       i++;
       quotient = 1;
     }
