@@ -33,7 +33,8 @@ function bytesize(bytes, maxDecimalDigits) {
       Math.round(quotient * (10 ** maxDecimalDigits)) /
         (10 ** maxDecimalDigits);
   // In the special case where quotient has been rounded up to 1024, we need to
-  // reduce it "by hand.""
+  // reduce it "by hand." However, this shouldn't happen if we've already gotten
+  // to the highest possible metric prefix.
   if (quotient == 1024 && i < prefixes.length -1) {
     i++;
     quotient = 1;
